@@ -1,0 +1,46 @@
+package com.addressbook;
+
+public class TestAddressBook {
+	AddressBook addressList = new AddressBook();
+
+	public void populteBook() {
+		SingleAddress singleaddress = new SingleAddress("Pavan", "Kumar", "RS Nagar", "Kurnool", "Andhra Pradesh",
+				"India", 518219);
+		SingleAddress singleaddress1 = new SingleAddress("Ram", "Nath", "NR Peta", "Kurnool", "Andhra Pradesh", "India",
+				518212);
+		SingleAddress singleaddress2 = new SingleAddress("Sathya", "Goud", "Gandi Nagar", "Ananatapur",
+				"Andhra Pradesh", "India", 518222);
+		SingleAddress singleaddress3 = new SingleAddress("Rajesh", "Varma", "VR Colony", "Nandyal", "Andhra Pradesh",
+				"India", 506033);
+		SingleAddress singleaddress4 = new SingleAddress("Vinod", "Kumar", "Nehru Nagar", "Vizag", "Andhra Pradesh",
+				"India", 501021);
+		SingleAddress singleaddress5 = new SingleAddress("Harish", "Reddy", "SS Colony", "Medak", "Telangana", "India",
+				500012);
+		addressList.listOfAddress.add(singleaddress);
+		addressList.listOfAddress.add(singleaddress1);
+		addressList.listOfAddress.add(singleaddress2);
+		addressList.listOfAddress.add(singleaddress3);
+		addressList.listOfAddress.add(singleaddress4);
+		addressList.listOfAddress.add(singleaddress5);
+		System.out.println(singleaddress.toString());
+	}
+
+	public static void main(String[] args) {
+		TestAddressBook testBook = new TestAddressBook();
+		testBook.populteBook();
+		System.out.println(testBook.addressList.listOfAddress);
+		SingleAddress singleaddress = new SingleAddress("Vinod", "Kumar", "Nehru Nagar", "Vizag", "Andhra Pradesh",
+				"India", 501021);
+		try {
+			testBook.addressList.addNewAddress(singleaddress);
+		} catch (DuplicateAddressException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(testBook.addressList.listOfAddress);
+		testBook.addressList.removeAddress(singleaddress);
+		System.out.println(testBook.addressList.listOfAddress);
+		System.out.println(testBook.addressList.toString(singleaddress));
+
+	}
+}
